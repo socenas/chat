@@ -7,7 +7,7 @@ import time
 def chatbot_response(user_message: str) -> str:
     user_message = (user_message or "").lower().strip()
 
-    if user_message in ["hi", "hello", "hey", "start"]:
+    if user_message in ["hi", "hello", "hey", "start", "Maayo Buntag"]:
         return "👋 Hello! How can I help you today?"
 
     elif "create account" in user_message or user_message == "1":
@@ -39,13 +39,14 @@ if "last_action" not in st.session_state:
 # Sidebar info + reset
 # --------------------------
 with st.sidebar:
-    st.title("ℹ️ About this Chatbot")
+    st.image("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3VI6JybvfwSxX1Pu-AIpTxIhq6WxnJy3soA&s", width=150)
+    st.title("WELCOME to TESDA XII")
     st.write("This is a simple **rule-based chatbot** built with Streamlit. You can:")
     st.markdown("""
-    - 👋 Greet the bot  
-    - 📝 Create an account  
-    - 📦 View courses  
-    - 📞 Talk to a human agent  
+    - 👋 Greet the TESDA-bot  
+    - 📝 Create your Account  
+    - 📦 View TESDA courses  
+    - 📞 Talk to TESDA agent  
     """)
     if st.button("🔄 Reset Chat"):
         st.session_state.messages = [("Bot", "👋 Hi! Welcome to TESDA Chatbot. Type 'help' to see options.")]
@@ -55,6 +56,14 @@ with st.sidebar:
 # --------------------------
 # Top title
 # --------------------------
+st.markdown(
+    """
+    <div style="text-align: center;">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2ogxwBDbJ9tsOcS2jaVRO98IRdAgEgjEsHQ&s" width="500">
+    </div>
+    """,
+    unsafe_allow_html=True
+)
 st.markdown("<h1 style='text-align: center; color: #4CAF50;'>🤖 Rule-Based Chatbot</h1>", unsafe_allow_html=True)
 st.write("Interact with the chatbot by typing or using quick action buttons below.")
 
@@ -133,13 +142,13 @@ for entry in st.session_state.messages:
     role, msg = entry
     if role == "You":
         st.markdown(
-            f"<div style='background-color:#DCF8C6; padding:10px; border-radius:15px; margin:5px; text-align:right;'>"
+            f"<div style='background-color:#FAB12F; padding:10px; border-radius:15px; margin:5px; text-align:right;'>"
             f"🧑 <b>{role}:</b> {msg}</div>",
             unsafe_allow_html=True,
         )
     else:
         st.markdown(
-            f"<div style='background-color:#E6E6FA; padding:10px; border-radius:15px; margin:5px; text-align:left;'>"
+            f"<div style='background-color:#FAB12F; padding:10px; border-radius:15px; margin:5px; text-align:left;'>"
             f"🤖 <b>{role}:</b> {msg}</div>",
             unsafe_allow_html=True,
         )
